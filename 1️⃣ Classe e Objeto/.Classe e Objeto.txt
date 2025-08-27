@@ -1,0 +1,35 @@
+// Definindo a classe Pessoa (molde para criar objetos)
+
+public class Pessoa {
+
+    // Atributos (características da pessoa)
+    String nome;
+    int idade;
+
+    // Método (ação que a pessoa pode fazer)
+
+    void falar() {
+        System.out.println(nome + " está falando.");
+    }
+}
+
+// Classe principal do programa
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Criando um objeto da classe Pessoa
+
+        Pessoa p1 = new Pessoa();
+
+        // Definindo valores para os atributos do objeto
+
+        p1.nome = "Paulo";
+        p1.idade = 19;
+
+        // Chamando o método falar()
+        // Vai imprimir: "Paulo está falando."
+
+        p1.falar();
+    }
+}
