@@ -1,0 +1,75 @@
+🔹 O que é uma Classe?
+
+ Uma classe é como um molde ou projeto para criar objetos.
+Ela define atributos (características) e métodos (comportamentos).
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo:
+Imagine a classe como uma receita de bolo.
+
+A receita diz quais ingredientes usar (atributos).
+
+E quais passos seguir para preparar (métodos).
+
+Mas a receita sozinha não é o bolo — para isso, você cria um objeto (uma instância da receita).
+------------------------------------------------------------------------------------------------
+
+🔹O que é um Objeto?
+
+Um objeto é uma instância da classe.
+Ou seja, quando você usa o "molde" (classe) para criar algo real na memória.
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo:
+
+BoloChocolate e BoloMorango podem ser 
+dois objetos criados a partir da mesma classe Bolo
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo prático em Java
+// Definição da classe (o MOLDE)
+class Pessoa {
+    // Atributos (características da pessoa)
+    String nome;
+    int idade;
+
+    // Método (comportamento da pessoa)
+    public void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + " e tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando OBJETOS (instâncias da classe Pessoa)
+        Pessoa p1 = new Pessoa(); // objeto 1
+        Pessoa p2 = new Pessoa(); // objeto 2
+
+        // Definindo valores para os atributos do objeto 1
+        p1.nome = "João";
+        p1.idade = 20;
+
+        // Definindo valores para os atributos do objeto 2
+        p2.nome = "Maria";
+        p2.idade = 25;
+
+        // Chamando o método de cada objeto
+        p1.apresentar(); // "Olá, meu nome é João e tenho 20 anos."
+        p2.apresentar(); // "Olá, meu nome é Maria e tenho 25 anos."
+    }
+}
+------------------------------------------------------------------------------------------------
+
+🔹Explicação do código
+
+1. class Pessoa { ... } → Criamos a classe Pessoa (o molde).
+
+2. String nome; int idade; → Definimos os atributos.
+
+3. public void apresentar() → Criamos um método.
+
+4. Pessoa p1 = new Pessoa(); → Criamos um objeto (instância da classe).
+
+5. p1.nome = "João"; → Preenchemos os atributos do objeto.
+
+6. p1.apresentar(); → O objeto executa o método.

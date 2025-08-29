@@ -1,0 +1,122 @@
+🔹 O que é Encapsulamento?
+
+ Encapsulamento é um princípio da POO que significa proteger os dados de uma classe, permitindo o acesso a eles apenas através de métodos controlados.
+
+Ou seja:
+
+Os atributos de uma classe normalmente ficam private 
+(privados, só acessados dentro da própria classe).
+
+O acesso a esses atributos é feito com getters 
+(para ler valores) e setters (para alterar valores).
+
+Isso evita que o código externo modifique os atributos 
+diretamente e ajuda a manter a segurança e consistência dos dados.
+------------------------------------------------------------------------------------------------
+
+🔹 Estrutura básica
+
+Getter → retorna o valor de um atributo.
+
+Setter → altera o valor de um atributo, mas pode incluir regras de validação.
+------------------------------------------------------------------------------------------------
+
+
+🔹Exemplo: Pessoa com encapsulamento
+class Pessoa {
+    //  Atributos privados (não podem ser acessados diretamente fora da classe)
+    private String nome;
+    private int idade;
+
+    // Construtor
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Getter para o nome (pegar o valor)
+    public String getNome() {
+        return nome;
+    }
+
+    // Setter para o nome (alterar o valor)
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // Getter para a idade
+    public int getIdade() {
+        return idade;
+    }
+
+    // Setter para a idade (com regra de validação)
+    public void setIdade(int idade) {
+        if (idade >= 0) { // não permite idade negativa
+            this.idade = idade;
+        } else {
+            System.out.println("Idade inválida!");
+        }
+    }
+
+    // Método comum
+    public void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + " e tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto
+        Pessoa p1 = new Pessoa("João", 20);
+
+        // Acessando atributos de forma controlada
+        System.out.println("Nome inicial: " + p1.getNome()); // usando getter
+        System.out.println("Idade inicial: " + p1.getIdade());
+
+        // Alterando valores com setter
+        p1.setNome("Maria");
+        p1.setIdade(25);
+
+        p1.apresentar(); // "Olá, meu nome é Maria e tenho 25 anos."
+
+        // Tentando colocar idade inválida
+        p1.setIdade(-5); // "Idade inválida!"
+    }
+}
+------------------------------------------------------------------------------------------------
+
+🔹Explicação
+
+private String nome; → atributos privados.
+
+getNome() → permite ler o valor do atributo.
+
+setNome(String nome) → permite alterar o valor, de forma controlada.
+
+setIdade(int idade) → adicionamos validação para evitar idade negativa.
+
+O código externo só consegue acessar os atributos por esses métodos, nunca diretamente.
+------------------------------------------------------------------------------------------------
+
+🔹Analogia da Vida Real
+
+Pense numa conta bancária 💰:
+
+O saldo é um atributo privado.
+
+Você não pode simplesmente abrir o sistema e digitar saldo = -1000.
+
+Você precisa usar métodos controlados como depositar() ou sacar().
+
+Isso garante que as regras do banco sejam respeitadas.
+------------------------------------------------------------------------------------------------
+
+🔹Resumindo
+
+Encapsulamento → proteger atributos, expondo apenas métodos controlados.
+
+Getters → ler valores.
+
+Setters → alterar valores (com regras se necessário).
+
+Deixa o sistema seguro, organizado e fácil de manter.

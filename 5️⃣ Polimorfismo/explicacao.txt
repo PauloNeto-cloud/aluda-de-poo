@@ -1,0 +1,108 @@
+🔹 O QUE E POLIMORFISMO?
+-----------------------------------------------------------------------------------------------
+
+A palavara polimorfismo vem do grego e siginifica "muitas formas".
+Em POO, o polimorfismo permite que um mesmo método ou uma mesma referência se comporte 
+de formas diferentes dependendo do objeeto que utilza.
+
+ou seja:
+Você pode usar uma mesma "interface" (forma externa),
+mas ter diferentes "implementações" (formas internas).
+-----------------------------------------------------------------------------------------------
+
+🔹 TIPOS DE POLIMORFISMO EM java
+-----------------------------------------------------------------------------------------------
+
+1. polimorfismo de sobrecarga (OverLoading)
+🔹 quanto temos varios metodos com o mesmo nome,
+   mas assinaturas diferentes(parametros diferentes).
+🔹 Decidido em tempo de compilação (compile-time).
+-----------------------------------------------------------------------------------------------
+
+2. polimorfismo de sobreposicao(OverRinding)
+🔹quando uma subclasse redefine um metodo ja existente na superclasse.
+🔹decidido em tempo de excucao (runtime)
+🔹aqui e onde o polimorfismo brilha de verdade
+-----------------------------------------------------------------------------------------------
+
+🔹Exemplo: Polimorfismo por Sobrecarga (Overloading)
+// Classe com métodos de mesmo nome, mas assinaturas diferentes
+class Calculadora {
+    
+    // Método soma com 2 inteiros
+    public int soma(int a, int b) {
+        return a + b;
+    }
+
+    // Método soma com 3 inteiros
+    public int soma(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Método soma com 2 números decimais (double)
+    public double soma(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um objeto da classe Calculadora
+        Calculadora calc = new Calculadora();
+
+        // O compilador escolhe automaticamente qual método chamar
+        // com base nos parâmetros passados
+
+        System.out.println(calc.soma(2, 3));        // Chama soma(int, int)
+        System.out.println(calc.soma(2, 3, 4));     // Chama soma(int, int, int)
+        System.out.println(calc.soma(2.5, 3.7));    // Chama soma(double, double)
+    }
+}
+-----------------------------------------------------------------------------------------------
+
+🔹Exemplo: Polimorfismo por Sobreposição (Overriding)
+// Classe base (superclasse)
+class Animal {
+    // Método genérico para emitir som
+    public void emitirSom() {
+        System.out.println("O animal faz um som...");
+    }
+}
+
+// Subclasse Cachorro herdando de Animal
+class Cachorro extends Animal {
+    // Sobrescrevendo (reescrevendo) o método da superclasse
+    @Override
+    public void emitirSom() {
+        System.out.println("O cachorro late: Au Au!");
+    }
+}
+
+// Subclasse Gato herdando de Animal
+class Gato extends Animal {
+    // Sobrescrevendo o mesmo método da superclasse
+    @Override
+    public void emitirSom() {
+        System.out.println("O gato mia: Miau!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando referências do tipo Animal,
+        // mas apontando para objetos diferentes
+        Animal a1 = new Cachorro(); // Referência Animal, objeto Cachorro
+        Animal a2 = new Gato();     // Referência Animal, objeto Gato
+
+        // O método chamado depende do OBJETO real
+        a1.emitirSom(); // Saída: "O cachorro late: Au Au!"
+        a2.emitirSom(); // Saída: "O gato mia: Miau!"
+    }
+}
+-----------------------------------------------------------------------------------------------
+
+resumindo
+🔹Overloading (Sobrecarga): métodos com mesmo nome, mas
+  diferentes parâmetros → decidido na compilação.
+🔹Overriding (Sobreposição): subclasses redefinem métodos → decidido na execução.
+-----------------------------------------------------------------------------------------------

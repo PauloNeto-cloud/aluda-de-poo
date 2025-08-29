@@ -1,0 +1,136 @@
+🔹O que é Herança?
+
+Herança é um mecanismo da POO que permite uma classe (filha ou subclasse) 
+herdar atributos e métodos de outra classe (pai ou superclasse).
+
+Isso evita repetição de código e permite reutilização.
+
+Em Java, usamos a palavra-chave extends.
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo de Herança em Java
+// Classe base (superclasse ou classe pai)
+class Animal {
+    // Atributos comuns a todos os animais
+    protected String nome;
+    protected int idade;
+
+    // Construtor da classe Animal
+    public Animal(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Método comum a todos os animais
+    public void emitirSom() {
+        System.out.println("O animal faz um som...");
+    }
+
+    // Método para mostrar informações
+    public void mostrarInfo() {
+        System.out.println("Nome: " + nome + ", Idade: " + idade);
+    }
+}
+
+// Classe Cachorro que herda de Animal
+class Cachorro extends Animal {
+    private String raca;
+
+    // Construtor de Cachorro (usa o construtor de Animal com super)
+    public Cachorro(String nome, int idade, String raca) {
+        super(nome, idade); // chama o construtor da classe pai
+        this.raca = raca;
+    }
+
+    // Sobrescrevendo o método emitirSom
+    @Override
+    public void emitirSom() {
+        System.out.println("O cachorro late: Au Au!");
+    }
+
+    // Novo método exclusivo da classe Cachorro
+    public void brincar() {
+        System.out.println(nome + " está brincando!");
+    }
+}
+
+// Classe Gato que herda de Animal
+class Gato extends Animal {
+    private String cor;
+
+    // Construtor de Gato
+    public Gato(String nome, int idade, String cor) {
+        super(nome, idade); // chama o construtor da classe pai
+        this.cor = cor;
+    }
+
+    // Sobrescrevendo o método emitirSom
+    @Override
+    public void emitirSom() {
+        System.out.println("O gato mia: Miau!");
+    }
+
+    // Novo método exclusivo da classe Gato
+    public void arranhar() {
+        System.out.println(nome + " está arranhando o sofá!");
+    }
+}
+
+// Classe principal para testar
+public class Main {
+    public static void main(String[] args) {
+        // Criando um cachorro
+        Cachorro c = new Cachorro("Rex", 5, "Labrador");
+        c.mostrarInfo(); // herdado de Animal
+        c.emitirSom();   // sobrescrito em Cachorro
+        c.brincar();     // método exclusivo de Cachorro
+
+        System.out.println();
+
+        // Criando um gato
+        Gato g = new Gato("Mimi", 3, "Branco");
+        g.mostrarInfo(); // herdado de Animal
+        g.emitirSom();   // sobrescrito em Gato
+        g.arranhar();    // método exclusivo de Gato
+    }
+}
+------------------------------------------------------------------------------------------------
+
+🔹Explicação
+..
+Classe Animal
+
+Tem atributos nome e idade, além de métodos comuns como emitirSom() e mostrarInfo().
+
+É a superclasse.
+
+Classe Cachorro
+
+Usa extends Animal → herdou atributos e métodos.
+
+Criamos um novo atributo raca.
+
+Usamos super(nome, idade) para chamar o construtor da classe pai.
+
+Sobrescrevemos emitirSom() para que o cachorro lata.
+
+Adicionamos um método exclusivo brincar().
+
+Classe Gato
+
+Herdou de Animal.
+
+Criamos um novo atributo cor.
+
+Sobrescrevemos emitirSom() para que o gato mia.
+
+Adicionamos um método exclusivo arranhar().
+------------------------------------------------------------------------------------------------
+
+🔹Em resumo:
+
+Herança → permite que classes compartilhem código.
+
+Sobrescrita (@Override) → permite mudar o comportamento herdado.
+
+super → chama métodos/atributos da classe pai.

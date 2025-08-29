@@ -1,0 +1,126 @@
+🔹 O que é um Construtor?
+
+ Um construtor é um método especial dentro da classe que é chamado automaticamente quando um objeto é criado com o new.
+
+Ele serve para:
+
+Inicializar atributos de um objeto.
+
+Garantir que o objeto comece seu "ciclo de vida" já configurado.
+------------------------------------------------------------------------------------------------
+
+🔹Regras importantes sobre construtores em Java:
+
+1. O construtor tem o mesmo nome da classe.
+
+2. Ele não tem tipo de retorno (nem void).
+
+3. Se você não criar nenhum, o Java cria um construtor padrão vazio automaticamente.
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo 1: Construtor Padrão (sem parâmetros)
+class Pessoa {
+    String nome;
+    int idade;
+
+    // Construtor padrão
+    public Pessoa() {
+        nome = "Desconhecido"; // valor inicial
+        idade = 0;             // valor inicial
+    }
+
+    public void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + " e tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando objeto usando o construtor padrão
+        Pessoa p1 = new Pessoa();
+
+        p1.apresentar(); // "Olá, meu nome é Desconhecido e tenho 0 anos."
+    }
+}
+
+
+Aqui não passamos nada, mas mesmo assim o 
+objeto foi inicializado com valores padrão definidos no construtor.
+------------------------------------------------------------------------------------------------
+
+🔹Exemplo 2: Construtor com Parâmetros
+class Pessoa {
+    String nome;
+    int idade;
+
+    // Construtor com parâmetros
+    public Pessoa(String n, int i) {
+        nome = n;
+        idade = i;
+    }
+
+    public void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + " e tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando objetos com valores passados no construtor
+        Pessoa p1 = new Pessoa("João", 20);
+        Pessoa p2 = new Pessoa("Maria", 25);
+
+        p1.apresentar(); // "Olá, meu nome é João e tenho 20 anos."
+        p2.apresentar(); // "Olá, meu nome é Maria e tenho 25 anos."
+    }
+}
+
+
+ Aqui usamos o construtor para já criar o objeto com valores específicos.
+
+ -----------------------------------------------------------------------------------------------
+🔹Exemplo 3: Sobrecarga de Construtores
+ Assim como métodos, construtores também 
+podem ser sobrecargados (mesmo nome, mas diferentes parâmetros).
+
+class Pessoa {
+    String nome;
+    int idade;
+
+    // Construtor sem parâmetros
+    public Pessoa() {
+        nome = "Desconhecido";
+        idade = 0;
+    }
+
+    // Construtor com parâmetros
+    public Pessoa(String n, int i) {
+        nome = n;
+        idade = i;
+    }
+
+    public void apresentar() {
+        System.out.println("Olá, meu nome é " + nome + " e tenho " + idade + " anos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Pessoa p1 = new Pessoa(); // usa construtor sem parâmetros
+        Pessoa p2 = new Pessoa("Carlos", 30); // usa construtor com parâmetros
+
+        p1.apresentar(); // "Olá, meu nome é Desconhecido e tenho 0 anos."
+        p2.apresentar(); // "Olá, meu nome é Carlos e tenho 30 anos."
+    }
+}
+------------------------------------------------------------------------------------------------
+
+🔹Resumindo:
+
+Construtor → método especial chamado quando o objeto é criado.
+
+Padrão → criado automaticamente pelo Java se você não definir nenhum.
+
+Com parâmetros → você define valores iniciais ao criar o objeto.
+
+Sobrecarga → você pode ter vários construtores diferentes na mesma classe.Resumindo:
